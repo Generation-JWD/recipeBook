@@ -1,13 +1,13 @@
 const createRecipeHtml = (id, name, type, serving, preparation, ingredients)  => {
     
-    const html = `<div class="card card-body text-start mb-3 border border-dark" data-task-id=${id}>
+    const html = `<div class="card card-body text-start mb-3 border border-dark" data-recipe-id=${id}>
         <h5 class="mb-4 fw-bolder text-center">${name}</h5>
         <p class="mb-2 fw-bolder">Serving People:<span id="pplSpan" class="px-2 fw-normal">${serving}</span></p>
         <p class="mb-2 fw-bolder">Preparation Time:<span id="prepSpan" class="px-2 fw-normal">${preparation}</span></p>
         <p class="mb-2 fw-bolder">Ingredients:
             <p class="border p-1">${ingredients}</p>
         </p>
-        <button type="button" class="btn btn-outline-danger btn-sm mx-5">Delete</button>
+        <button type="button" class="btn btn-outline-danger btn-sm mx-5 delete-button">Delete</button>
     </div>`;
   
   return html;
@@ -82,7 +82,36 @@ class RecipeManager {
         desserts.innerHTML = dessertsHtml;
         
     }
+
+    save(){
+        let recipesJson = JSON.stringify(this.recipes);
+        localStorage.setItem("recipes", recipesJson);
+        let currentId = JSON.stringify(this.currentId);
+        localStorage.setItem("currentId", currentId);
+      }
+
+      load(){
+        //cheching if there are any tasks in localStorage
+        if(localStorage.getItem("recipes")){
+          let recipesJson = localStorage.getItem("recipes");
+          this.recipes = JSON.parse(recipesJson);
+        }
+  
+        if(localStorage.getItem("currentId")){
+          let currentId = localStorage.getItem("currentId");
+          this.currentId = JSON.parse(currentId);
+        }
+      }
+
+      deleteTask(recipeId){
+        let newRecipes = [];
+        for(let i = 0; i < this.recipes.length; i++){
+          let recipe = this.recipes[i];
+          if(recipe.id !== recipeId){
+            newRecipes.push(recipe);
+          }
+        }
+        this.recipes = newRecipes;
+      }
 }
 
-
-//console.log(createRecipeHtml(1,"gnocchi","MAIN", 4, "40mins", "tomato, pasta, onion"));
