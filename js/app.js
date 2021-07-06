@@ -15,7 +15,7 @@ const submitForm = (e) => {
     e.preventDefault();
 
     // add the recipe to the array recipes
-    recipeManager.addTask(recipeName.value, mealType.value, servingPpl.value, prepTime.value, ingredients.value);
+    recipeManager.addTask(recipeName.value.toUpperCase(), mealType.value, servingPpl.value, prepTime.value, ingredients.value);
     //console.log(recipeManager.recipes);
 
     // resete the forms inputs
