@@ -15,7 +15,7 @@ const submitForm = (e) => {
     e.preventDefault();
 
     // add the recipe to the array recipes
-    recipeManager.addTask(recipeName.value.toUpperCase(), mealType.value, servingPpl.value, prepTime.value, ingredients.value);
+    recipeManager.addRecipe(recipeName.value.toUpperCase(), mealType.value, servingPpl.value, prepTime.value, ingredients.value);
     //console.log(recipeManager.recipes);
 
     // resete the forms inputs
@@ -39,7 +39,7 @@ mains.addEventListener("click", (event) =>{
     if(event.target.classList.contains("delete-button")){
         const parentRecipe = event.target.parentElement;  
          const recipeId = Number(parentRecipe.dataset.recipeId);
-         recipeManager.deleteTask(recipeId);
+         recipeManager.deleteRecipe(recipeId);
 
         recipeManager.render();
         //Saving the data in the localSorage
@@ -51,7 +51,7 @@ sides.addEventListener("click", (event) =>{
     if(event.target.classList.contains("delete-button")){
         const parentRecipe = event.target.parentElement;  
          const recipeId = Number(parentRecipe.dataset.recipeId);
-         recipeManager.deleteTask(recipeId);
+         recipeManager.deleteRecipe(recipeId);
 
         recipeManager.render();
         //Saving the data in the localSorage
@@ -63,7 +63,7 @@ desserts.addEventListener("click", (event) =>{
     if(event.target.classList.contains("delete-button")){
         const parentRecipe = event.target.parentElement;  
          const recipeId = Number(parentRecipe.dataset.recipeId);
-         recipeManager.deleteTask(recipeId);
+         recipeManager.deleteRecipe(recipeId);
 
         recipeManager.render();
         //Saving the data in the localSorage
@@ -75,7 +75,7 @@ appertizers.addEventListener("click", (event) =>{
     if(event.target.classList.contains("delete-button")){
         const parentRecipe = event.target.parentElement;  
          const recipeId = Number(parentRecipe.dataset.recipeId);
-         recipeManager.deleteTask(recipeId);
+         recipeManager.deleteRecipe(recipeId);
 
         recipeManager.render();
         //Saving the data in the localSorage

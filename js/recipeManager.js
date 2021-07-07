@@ -19,7 +19,7 @@ class RecipeManager {
         this.currentId = currentId;
     }
 
-    addTask(name, type, serving, preparation, ingredients) {
+    addRecipe(name, type, serving, preparation, ingredients) {
         const newRecipe = {
             id: this.currentId++,
             name: name,
@@ -103,7 +103,7 @@ class RecipeManager {
         }
       }
 
-      deleteTask(recipeId){
+      deleteRecipe(recipeId){
         let newRecipes = [];
         for(let i = 0; i < this.recipes.length; i++){
           let recipe = this.recipes[i];
