@@ -17,7 +17,7 @@ VS Code
 
 ### Functionality
 1. Insert a new recipe
-2. Show the recipes divived per Meal Type
+2. Show the recipes divived per Meal Type and store them to the Local Storage
 3. Delete the recipe
 
 
