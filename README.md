@@ -1,17 +1,17 @@
 # recipeBook
 This a web app will have the functionality to store user's recipes
 
-## Lenguages
+### Lenguages
 HTML
 JavaScript
 
-## Libraries
+### Libraries
 Bootstrap
 
-## Database
+### Database
 Google Chrome Local Storage
 
-## Functionality
+### Functionality
 Insert a new recipe
 Show the recipes divived per Meal Type
 Delete the recipe
